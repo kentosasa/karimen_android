@@ -1,0 +1,107 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:orientation="vertical"
+    tools:context=".MainActivity$PlaceholderFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="24dp"
+        android:background="@color/subColor"
+        >
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="4dp"
+            android:layout_marginTop="8dp"
+            android:background="@color/mainColor"></View>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@color/mainColor"
+            android:text="模擬試験"
+            android:id="@+id/text_title"
+            android:layout_gravity="center_horizontal" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="4dp"
+            android:layout_marginBottom="8dp"
+            android:background="@color/mainColor"></View>
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/progressBar"
+            android:layout_gravity="center_vertical|center_horizontal" />
+
+        <LinearLayout
+            android:id="@+id/layout_mogi"
+            android:padding="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            tools:context="com.karimen.kento.karimen.MogiFragment">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_weight="2"
+                android:layout_margin="16dp"
+                android:padding="8dp"
+                android:background="@color/subColor"
+                android:textColor="@color/mainTextColor"
+                android:text="hogehoge"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:id="@+id/text_problem"
+                android:layout_gravity="center_horizontal" />
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_weight="1"
+                android:paddingTop="16dp"
+                android:layout_gravity="center_horizontal">
+
+                <ImageButton
+                    android:id="@+id/button_maru"
+                    android:src="@drawable/maru"
+                    android:adjustViewBounds="true"
+                    android:scaleType="fitCenter"
+                    android:background="@color/subColor"
+                    android:layout_width="1dp"
+                    android:layout_margin="16dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                     />
+
+                <ImageButton
+                    android:id="@+id/button_batu"
+                    android:src="@drawable/batu"
+                    android:adjustViewBounds="true"
+                    android:scaleType="fitCenter"
+                    android:background="@color/subColor"
+                    android:layout_width="1dp"
+                    android:layout_margin="16dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </FrameLayout>
+</LinearLayout>
+

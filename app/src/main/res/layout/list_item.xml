@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="8dp"
+    android:background="@color/subColor">
+
+    <ImageView
+        android:id="@+id/image_result_icon"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginRight="8dp"
+        android:src="@drawable/maru"
+        android:adjustViewBounds="true"
+        android:scaleType="fitCenter"
+        />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_weight="1"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:id="@+id/text_q_num"
+            android:textColor="@color/mainTextColor"
+            android:textSize="20dp"
+            android:text="num"
+            android:layout_gravity="center_vertical" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="@color/mainTextColor"
+            android:textSize="16dp"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:text="hoge"
+            android:id="@+id/text_problem" />
+    </LinearLayout>
+
+</LinearLayout>
