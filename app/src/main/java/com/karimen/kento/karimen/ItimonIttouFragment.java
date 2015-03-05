@@ -7,6 +7,7 @@ import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
+import android.opengl.Visibility;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -31,7 +32,7 @@ public class ItimonIttouFragment extends Fragment {
     SharedPreferences pref;
     ArrayList<Integer> review_list;
     ArrayList<Problem> problems = new ArrayList<Problem>();
-    final String url = "https://menkyo.herokuapp.com/api/get_all_problems";
+    final String url = "https://menkyo.herokuapp.com/api/get_all_problems?honmen=1";
     String put_correct = "https://menkyo.herokuapp.com/api/put_correct?id=";
     String put_miss = "https://menkyo.herokuapp.com/api/put_miss?id=";
     AQuery aq;
@@ -93,7 +94,8 @@ public class ItimonIttouFragment extends Fragment {
             public void onClick(DialogInterface dialog, int which) {
                 if (question_num < problems.size()-1) question_num++;
                 else  question_num = 0;
-                aq.id(R.id.text_problem).text(problems.get(question_num).question_text);
+                setQuestion();
+
             }
         });
         dialog.setPositiveButton("詳細", new DialogInterface.OnClickListener() {
@@ -112,16 +114,24 @@ public class ItimonIttouFragment extends Fragment {
 
                 if (question_num < problems.size()-1) question_num++;
                 else  question_num = 0;
-                aq.id(R.id.text_problem).text(problems.get(question_num).question_text);
+                setQuestion();
             }
         });
         dialog.show();
+    }
 
+    public void setQuestion(){
+        String image_url = problems.get(question_num).getQuestion_image_url();
+        if (image_url.length() > 5){
+            aq.id(R.id.image_problem).visible();
+            aq.id(R.id.image_problem).image(image_url);
+        }else{
+            aq.id(R.id.image_problem).gone();
+        }
+        aq.id(R.id.text_problem).text(problems.get(question_num).question_text);
     }
 
     public void jsonArrayCallback(String url, JSONArray jsonArray, AjaxStatus status){
-        Log.e("Callback", "Callback");
-        Log.e("URL", url);
         if (jsonArray != null){
             for (int i = 0; jsonArray.length() > i; i++) {
                 try {

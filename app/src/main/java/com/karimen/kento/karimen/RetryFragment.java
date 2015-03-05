@@ -58,7 +58,7 @@ public class RetryFragment extends Fragment {
         }
         aq = new AQuery(getActivity(), view);
 
-        aq.id(R.id.text_title).text("一問一答");
+        aq.id(R.id.text_title).text("復習問題");
         aq.ajax(url, JSONArray.class, this, "jsonArrayCallback");
         aq.id(R.id.layout_mogi).gone();
         aq.id(R.id.button_maru).clicked(new View.OnClickListener() {
@@ -121,6 +121,9 @@ public class RetryFragment extends Fragment {
             public void onClick(DialogInterface dialog, int which) {
                 review_list.remove(question_num);
                 review_list = gson.fromJson(pref.getString("review_list", gson.toJson(new ArrayList<Integer>())), new TypeToken<ArrayList<Integer>>(){}.getType());
+                if (question_num < problems.size() - 1) question_num++;
+                else question_num = 0;
+                aq.id(R.id.text_problem).text(problems.get(question_num).question_text);
             }
         });
         dialog.show();
@@ -131,23 +134,27 @@ public class RetryFragment extends Fragment {
         Log.e("Callback", "Callback");
         Log.e("URL", url);
         if (jsonArray != null){
-            for (int i = 0; jsonArray.length() > i; i++) {
-                try {
-                    Problem data = new Problem();
-                    JSONObject raw = jsonArray.getJSONObject(i);
-                    data.setId(raw.getInt("id"));
-                    data.setQuestion_image_url(raw.getString("question_image_url"));
-                    data.setQuestion_text(raw.getString("question_text"));
-                    data.setExplanation(raw.getString("explanation"));
-                    data.setCorrect_answer(raw.getBoolean("correct_answer"));
-                    Log.e("Get Problem", "No." + data.getId());
+            if (jsonArray.length() > 0){
+                for (int i = 0; jsonArray.length() > i; i++) {
+                    try {
+                        Problem data = new Problem();
+                        JSONObject raw = jsonArray.getJSONObject(i);
+                        data.setId(raw.getInt("id"));
+                        data.setQuestion_image_url(raw.getString("question_image_url"));
+                        data.setQuestion_text(raw.getString("question_text"));
+                        data.setExplanation(raw.getString("explanation"));
+                        data.setCorrect_answer(raw.getBoolean("correct_answer"));
+                        Log.e("Get Problem", "No." + data.getId());
 
-                    aq.id(R.id.layout_mogi).visible();
-                    aq.id(R.id.progressBar).gone();
-                    problems.add(data);
-                } catch (JSONException e) {
-                    Log.e("JsonParse失敗", "残念");
-                };
+                        aq.id(R.id.layout_mogi).visible();
+                        aq.id(R.id.progressBar).gone();
+                        problems.add(data);
+                    } catch (JSONException e) {
+                        Log.e("JsonParse失敗", "残念");
+                    };
+                }
+            }else{
+               Toast.makeText(context, "復習問題が存在しません", Toast.LENGTH_SHORT).show();
             }
             aq.id(R.id.text_problem).text(problems.get(question_num).question_text);
             aq.id(R.id.layout_mogi).visible();

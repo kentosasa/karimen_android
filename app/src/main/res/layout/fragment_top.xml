@@ -46,19 +46,22 @@
         android:padding="32dp"
         android:layout_weight="1">
 
-        <View
+        <ImageView
+            android:id="@+id/image_top"
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:layout_weight="1"></View>
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:src="@drawable/car"></ImageView>
 
         <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="fill_parent"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center">
 
             <FrameLayout
-                android:layout_width="1dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/subColor"
                 android:layout_margin="8dp"
@@ -70,23 +73,24 @@
                     android:layout_margin="8dp"
                     android:background="@color/mainColor">
 
-                    <ImageButton
-                        android:id="@+id/button_mogisiken"
-                        android:src="@drawable/mogi"
-                        android:background="@color/subColor"
+                    <TextView
+                        android:id="@+id/button_mogi"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_margin="4dp"
-                        android:adjustViewBounds="true"
-                        android:scaleType="fitCenter"
-                        android:layout_gravity="center_horizontal" />
+                        android:gravity="center"
+                        android:textSize="24sp"
+                        android:padding="4dp"
+                        android:text="模擬試験"
+                        android:textStyle="bold"
+                        android:textColor="@color/White"/>
+
 
                     </FrameLayout>
 
 
             </FrameLayout>
             <FrameLayout
-                android:layout_width="1dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/subColor"
                 android:layout_margin="8dp"
@@ -98,28 +102,32 @@
                     android:layout_margin="8dp"
                     android:background="@color/mainColor">
 
-                    <ImageButton
+                    <TextView
                         android:id="@+id/button_itimonittou"
-                        android:src="@drawable/itimon"
-                        android:background="@color/subColor"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_margin="4dp"
-                        android:adjustViewBounds="true"
-                        android:scaleType="fitCenter"
-                        android:layout_gravity="center_horizontal" />
+                        android:gravity="center"
+                        android:textSize="24sp"
+                        android:padding="4dp"
+                        android:text="一問一答"
+                        android:textStyle="bold"
+                        android:textColor="@color/White"/>
+
+                    <!--<ImageButton-->
+                        <!--android:id="@+id/button_itimonittou"-->
+                        <!--android:src="@drawable/itimon"-->
+                        <!--android:background="@color/subColor"-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_margin="4dp"-->
+                        <!--android:adjustViewBounds="true"-->
+                        <!--android:scaleType="fitCenter"-->
+                        <!--android:layout_gravity="center_horizontal" />-->
 
                 </FrameLayout>
             </FrameLayout>
-        </LinearLayout>
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center">
-
             <FrameLayout
-                android:layout_width="1dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/subColor"
                 android:layout_margin="8dp"
@@ -131,47 +139,57 @@
                     android:layout_margin="8dp"
                     android:background="@color/mainColor">
 
-                    <ImageButton
+                    <TextView
                         android:id="@+id/button_review"
-                        android:src="@drawable/review"
-                        android:background="@color/subColor"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_margin="4dp"
-                        android:adjustViewBounds="true"
-                        android:scaleType="fitCenter"
-                        android:layout_gravity="center_horizontal" />
+                        android:gravity="center"
+                        android:textSize="24sp"
+                        android:padding="4dp"
+                        android:textStyle="bold"
+                        android:text="復習"
+                        android:textColor="@color/White"/>
+                    <!--<ImageButton-->
+                        <!--android:id="@+id/button_review"-->
+                        <!--android:src="@drawable/review"-->
+                        <!--android:background="@color/subColor"-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_margin="4dp"-->
+                        <!--android:adjustViewBounds="true"-->
+                        <!--android:scaleType="fitCenter"-->
+                        <!--android:layout_gravity="center_horizontal" />-->
 
                 </FrameLayout>
 
 
             </FrameLayout>
-            <FrameLayout
-                android:layout_width="1dp"
-                android:layout_height="wrap_content"
-                android:background="@color/subColor"
-                android:layout_margin="8dp"
-                android:layout_weight="1">
+            <!--<FrameLayout-->
+                <!--android:layout_width="1dp"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:background="@color/subColor"-->
+                <!--android:layout_margin="8dp"-->
+                <!--android:layout_weight="1">-->
 
-                <FrameLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="8dp"
-                    android:background="@color/mainColor">
+                <!--<FrameLayout-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_margin="8dp"-->
+                    <!--android:background="@color/mainColor">-->
 
-                    <ImageButton
-                        android:id="@+id/button_setting"
-                        android:src="@drawable/setting"
-                        android:background="@color/subColor"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="4dp"
-                        android:adjustViewBounds="true"
-                        android:scaleType="fitCenter"
-                        android:layout_gravity="center_horizontal" />
+                    <!--&lt;!&ndash;<ImageButton&ndash;&gt;-->
+                        <!--&lt;!&ndash;android:id="@+id/button_setting"&ndash;&gt;-->
+                        <!--&lt;!&ndash;android:src="@drawable/setting"&ndash;&gt;-->
+                        <!--&lt;!&ndash;android:background="@color/subColor"&ndash;&gt;-->
+                        <!--&lt;!&ndash;android:layout_width="match_parent"&ndash;&gt;-->
+                        <!--&lt;!&ndash;android:layout_height="wrap_content"&ndash;&gt;-->
+                        <!--&lt;!&ndash;android:layout_margin="4dp"&ndash;&gt;-->
+                        <!--&lt;!&ndash;android:adjustViewBounds="true"&ndash;&gt;-->
+                        <!--&lt;!&ndash;android:scaleType="fitCenter"&ndash;&gt;-->
+                        <!--&lt;!&ndash;android:layout_gravity="center_horizontal" />&ndash;&gt;-->
 
-                </FrameLayout>
-            </FrameLayout>
+                <!--</FrameLayout>-->
+            <!--</FrameLayout>-->
         </LinearLayout>
     </LinearLayout>
     <View

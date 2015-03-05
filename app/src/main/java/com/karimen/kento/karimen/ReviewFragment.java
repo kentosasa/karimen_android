@@ -63,26 +63,32 @@ public class ReviewFragment extends Fragment {
             public void onClick(View v) {
                     AlertDialog.Builder dialog = new AlertDialog.Builder(context);
                     dialog.setTitle("履歴を削除しますか");
-                    dialog.setPositiveButton("削除", new DialogInterface.OnClickListener() {
+                    dialog.setNegativeButton("削除", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             SharedPreferences pref = context.getSharedPreferences("pref",Context.MODE_PRIVATE);
                             Gson gson = new Gson();
-                            pref.edit().putString("review_list", gson.toJson(new ArrayList<Integer>()));
+                            pref.edit().putString("review_list", gson.toJson(new ArrayList<Integer>())).commit();
                         }
                     });
-                    dialog.setNegativeButton("取消", new DialogInterface.OnClickListener() {
+                    dialog.setPositiveButton("取消", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
 
                         }
                     });
+                dialog.show();
                 }
         });
         aq.id(R.id.button_back).clicked(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getFragmentManager().popBackStack();
+                FragmentManager fm = getFragmentManager();
+                FragmentTransaction ft = fm.beginTransaction();
+                TopFragment topFragment = new TopFragment();
+                ft.add(R.id.container, topFragment);
+                ft.addToBackStack(null);
+                ft.commit();
             }
         });
         return view;

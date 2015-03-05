@@ -58,6 +58,13 @@
                 android:textColor="@color/mainTextColor"
                 android:text="問題文" />
 
+            <ImageView
+                android:id="@+id/image_explanation"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:visibility="gone"
+                android:layout_gravity="center_horizontal" />
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -79,10 +86,7 @@
                 android:textColor="@color/Red"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:id="@+id/text_explanation"/>
-
         </LinearLayout>
-
-
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -130,6 +134,5 @@
                 android:text="もどる"
                 android:id="@+id/button_back" />
         </LinearLayout>
-
     </LinearLayout>
  </LinearLayout>

@@ -37,6 +37,14 @@ public class ExplanationFragment extends Fragment{
         Problem problem = gson.fromJson(data, Problem.class);
         AQuery aq = new AQuery(getActivity(), view);
 
+        String image_url = problem.getQuestion_image_url();
+        if (image_url.length() > 5){
+            aq.id(R.id.image_problem).visible();
+            aq.id(R.id.image_problem).image(image_url);
+        }else{
+            Log.e("Image Empty", "Image Empty");
+            aq.id(R.id.image_problem).gone();
+        }
         aq.id(R.id.text_problem).text(problem.getQuestion_text());
         aq.id(R.id.text_explanation).text(problem.getExplanation());
         if (problem.isUser_answer()) aq.id(R.id.text_answer).text("あなたの回答　◯");

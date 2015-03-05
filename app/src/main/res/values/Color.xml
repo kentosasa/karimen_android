@@ -3,8 +3,10 @@
     <color name="textcolor">#ffffff</color>
     <color name="subTextColor">#ffffff</color>
     <color name="mainTextColor">#000000</color>
-    <color name="background">#3400bf</color>
-    <color name="mainColor">#3400bf</color>
+    <!--<color name="background">#3400bf</color>-->
+    <!--<color name="mainColor">#3400bf</color>-->
+    <color name="background">#00a54f</color>
+    <color name="mainColor">#00a54f</color>
     <color name="subColor">#ffffff</color>
     <color name="White">#FFFFFF</color>
     <color name="Ivory">#FFFFF0</color>

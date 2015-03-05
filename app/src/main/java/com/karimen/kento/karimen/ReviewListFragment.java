@@ -55,8 +55,7 @@ public class ReviewListFragment extends Fragment {
         }
         aq = new AQuery(getActivity(), view);
         aq.ajax(url, JSONArray.class, this, "jsonArrayCallback");
-
-
+        aq.id(R.id.text_title).text("復習一覧");
         aq.id(R.id.button_back).clicked(new View.OnClickListener() {
 
             @Override
@@ -86,7 +85,11 @@ public class ReviewListFragment extends Fragment {
                     data.setQuestion_text(raw.getString("question_text"));
                     data.setExplanation(raw.getString("explanation"));
                     data.setCorrect_answer(raw.getBoolean("correct_answer"));
-                    Log.e("Get Problem", "No." + data.getId());
+                    if (data.isCorrect_answer()){
+                        data.setUser_answer(false);
+                    }else {
+                        data.setUser_answer(true);
+                    }
 
                     aq.id(R.id.layout_mogi).visible();
                     aq.id(R.id.progressBar).gone();

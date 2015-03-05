@@ -42,7 +42,7 @@ public class MogiResultFragment extends Fragment{
             }
         }
         if (score >= 45){
-            aq.id(R.id.text_pass_of_fail).text("合格 ");
+            aq.id(R.id.text_pass_of_fail).text("合格 ").textColor(R.color.Red);
             aq.id(R.id.text_score).text(score + "/50" );
         }else{
             aq.id(R.id.text_pass_of_fail).text("不合格 ").textColor(R.color.Blue);
