@@ -1,10 +1,7 @@
-package com.karimen.kento.karimen;
+package com.karimen.kento.honmen;
 
-import android.media.Image;
 import android.widget.ImageView;
 import android.widget.TextView;
-
-import org.w3c.dom.Text;
 
 /**
  * Created by Kento on 15/02/11.

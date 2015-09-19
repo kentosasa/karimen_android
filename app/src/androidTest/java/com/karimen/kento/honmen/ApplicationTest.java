@@ -1,4 +1,4 @@
-package com.karimen.kento.karimen;
+package com.karimen.kento.honmen;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

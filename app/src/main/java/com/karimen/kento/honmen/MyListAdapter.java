@@ -1,8 +1,6 @@
-package com.karimen.kento.karimen;
+package com.karimen.kento.honmen;
 
-import android.app.Activity;
 import android.content.Context;
-import android.media.Image;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,7 +10,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.androidquery.AQuery;
-
 
 import java.util.ArrayList;
 
@@ -25,9 +22,9 @@ public class MyListAdapter extends BaseAdapter {
     private LayoutInflater inflater;
 
 
-    public MyListAdapter(Context context, ArrayList<Problem> data){
+    public MyListAdapter(Context context, ArrayList<Problem> data) {
         this.context = context;
-        inflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         results = data;
     }
 
@@ -50,13 +47,13 @@ public class MyListAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         ViewHolder holder = new ViewHolder();
 
-        if (convertView == null){
-            convertView = inflater.inflate(R.layout.list_item,null);
-            holder.image_result = (ImageView)convertView.findViewById(R.id.image_result_icon);
-            holder.text_problem = (TextView)convertView.findViewById(R.id.text_problem);
-            holder.text_q_num = (TextView)convertView.findViewById(R.id.text_q_num);
+        if (convertView == null) {
+            convertView = inflater.inflate(R.layout.list_item, null);
+            holder.image_result = (ImageView) convertView.findViewById(R.id.image_result_icon);
+            holder.text_problem = (TextView) convertView.findViewById(R.id.text_problem);
+            holder.text_q_num = (TextView) convertView.findViewById(R.id.text_q_num);
             convertView.setTag(holder);
-        }else{
+        } else {
             holder = (ViewHolder) convertView.getTag();
         }
 
@@ -64,12 +61,12 @@ public class MyListAdapter extends BaseAdapter {
         AQuery aq = new AQuery(convertView);
 
         aq.id(holder.text_problem).text(result.getQuestion_text());
-        aq.id(holder.text_q_num).text("Q."+String.valueOf(position+1));
+        aq.id(holder.text_q_num).text("Q." + String.valueOf(position + 1));
 
-        if (String.valueOf(result.isUser_answer()) == String.valueOf(result.isCorrect_answer())){
+        if (String.valueOf(result.isUser_answer()) == String.valueOf(result.isCorrect_answer())) {
             Log.e("結果", "◯");
             aq.id(holder.image_result).image(R.drawable.maru);
-        }else{
+        } else {
             Log.e("結果", "×");
             aq.id(holder.image_result).image(R.drawable.batu);
         }

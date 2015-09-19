@@ -1,4 +1,4 @@
-package com.karimen.kento.karimen;
+package com.karimen.kento.honmen;
 
 import android.app.AlertDialog;
 import android.app.Fragment;
@@ -8,14 +8,12 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.androidquery.AQuery;
 import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
 
 import java.util.ArrayList;
 
@@ -61,24 +59,24 @@ public class ReviewFragment extends Fragment {
 
             @Override
             public void onClick(View v) {
-                    AlertDialog.Builder dialog = new AlertDialog.Builder(context);
-                    dialog.setTitle("履歴を削除しますか");
-                    dialog.setNegativeButton("削除", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            SharedPreferences pref = context.getSharedPreferences("pref",Context.MODE_PRIVATE);
-                            Gson gson = new Gson();
-                            pref.edit().putString("review_list", gson.toJson(new ArrayList<Integer>())).commit();
-                        }
-                    });
-                    dialog.setPositiveButton("取消", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
+                AlertDialog.Builder dialog = new AlertDialog.Builder(context);
+                dialog.setTitle("履歴を削除しますか");
+                dialog.setNegativeButton("削除", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        SharedPreferences pref = context.getSharedPreferences("pref", Context.MODE_PRIVATE);
+                        Gson gson = new Gson();
+                        pref.edit().putString("review_list", gson.toJson(new ArrayList<Integer>())).commit();
+                    }
+                });
+                dialog.setPositiveButton("取消", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
 
-                        }
-                    });
+                    }
+                });
                 dialog.show();
-                }
+            }
         });
         aq.id(R.id.button_back).clicked(new View.OnClickListener() {
             @Override

@@ -1,5 +1,6 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background"
     android:orientation="vertical"
@@ -8,10 +9,9 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
         android:layout_marginTop="24dp"
         android:background="@color/subColor"
-        >
+        android:orientation="vertical">
 
         <View
             android:layout_width="match_parent"
@@ -20,13 +20,13 @@
             android:background="@color/mainColor"></View>
 
         <TextView
+            android:id="@+id/text_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor="@color/mainColor"
+            android:layout_gravity="center_horizontal"
             android:text="復習"
-            android:id="@+id/text_title"
-            android:layout_gravity="center_horizontal" />
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@color/mainColor" />
 
         <View
             android:layout_width="match_parent"
@@ -38,13 +38,13 @@
 
 
     <LinearLayout
-        android:orientation="vertical"
-        android:layout_gravity="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:weightSum="1"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:orientation="vertical"
         android:padding="32dp"
-        android:layout_weight="1">
+        android:weightSum="1">
 
         <View
             android:layout_width="match_parent"
@@ -52,17 +52,17 @@
             android:layout_weight="1"></View>
 
         <LinearLayout
-            android:orientation="vertical"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:gravity="center">
+            android:gravity="center"
+            android:orientation="vertical">
 
             <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/subColor"
                 android:layout_margin="8dp"
-                android:layout_weight="1">
+                android:layout_weight="1"
+                android:background="@color/subColor">
 
                 <FrameLayout
                     android:layout_width="match_parent"
@@ -75,33 +75,34 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center"
-                        android:textSize="24sp"
                         android:padding="4dp"
                         android:text="復習問題"
-                        android:textStyle="bold"
-                        android:textColor="@color/White"/>
+                        android:textColor="@color/White"
+                        android:textSize="24sp"
+                        android:textStyle="bold" />
 
                     <!--<ImageButton-->
-                        <!--android:id="@+id/button_retry"-->
-                        <!--android:src="@drawable/mogi"-->
-                        <!--android:background="@color/subColor"-->
-                        <!--android:layout_width="match_parent"-->
-                        <!--android:layout_height="wrap_content"-->
-                        <!--android:layout_margin="4dp"-->
-                        <!--android:adjustViewBounds="true"-->
-                        <!--android:scaleType="fitCenter"-->
-                        <!--android:layout_gravity="center_horizontal" />-->
+                    <!--android:id="@+id/button_retry"-->
+                    <!--android:src="@drawable/mogi"-->
+                    <!--android:background="@color/subColor"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_margin="4dp"-->
+                    <!--android:adjustViewBounds="true"-->
+                    <!--android:scaleType="fitCenter"-->
+                    <!--android:layout_gravity="center_horizontal" />-->
 
                 </FrameLayout>
 
 
             </FrameLayout>
+
             <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/subColor"
                 android:layout_margin="8dp"
-                android:layout_weight="1">
+                android:layout_weight="1"
+                android:background="@color/subColor">
 
                 <FrameLayout
                     android:layout_width="match_parent"
@@ -114,22 +115,22 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center"
-                        android:textSize="24sp"
                         android:padding="4dp"
                         android:text="復習一覧"
-                        android:textStyle="bold"
-                        android:textColor="@color/White"/>
+                        android:textColor="@color/White"
+                        android:textSize="24sp"
+                        android:textStyle="bold" />
 
                     <!--<ImageButton-->
-                        <!--android:id="@+id/button_review_list"-->
-                        <!--android:src="@drawable/itimon"-->
-                        <!--android:background="@color/subColor"-->
-                        <!--android:layout_width="match_parent"-->
-                        <!--android:layout_height="wrap_content"-->
-                        <!--android:layout_margin="4dp"-->
-                        <!--android:adjustViewBounds="true"-->
-                        <!--android:scaleType="fitCenter"-->
-                        <!--android:layout_gravity="center_horizontal" />-->
+                    <!--android:id="@+id/button_review_list"-->
+                    <!--android:src="@drawable/itimon"-->
+                    <!--android:background="@color/subColor"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_margin="4dp"-->
+                    <!--android:adjustViewBounds="true"-->
+                    <!--android:scaleType="fitCenter"-->
+                    <!--android:layout_gravity="center_horizontal" />-->
 
                 </FrameLayout>
             </FrameLayout>
@@ -137,9 +138,9 @@
             <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/subColor"
                 android:layout_margin="8dp"
-                android:layout_weight="1">
+                android:layout_weight="1"
+                android:background="@color/subColor">
 
                 <FrameLayout
                     android:layout_width="match_parent"
@@ -152,33 +153,34 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center"
-                        android:textSize="24sp"
                         android:padding="4dp"
                         android:text="履歴削除"
-                        android:textStyle="bold"
-                        android:textColor="@color/White"/>
+                        android:textColor="@color/White"
+                        android:textSize="24sp"
+                        android:textStyle="bold" />
 
                     <!--<ImageButton-->
-                        <!--android:id="@+id/button_reset_data"-->
-                        <!--android:src="@drawable/review"-->
-                        <!--android:background="@color/subColor"-->
-                        <!--android:layout_width="match_parent"-->
-                        <!--android:layout_height="wrap_content"-->
-                        <!--android:layout_margin="4dp"-->
-                        <!--android:adjustViewBounds="true"-->
-                        <!--android:scaleType="fitCenter"-->
-                        <!--android:layout_gravity="center_horizontal" />-->
+                    <!--android:id="@+id/button_reset_data"-->
+                    <!--android:src="@drawable/review"-->
+                    <!--android:background="@color/subColor"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_margin="4dp"-->
+                    <!--android:adjustViewBounds="true"-->
+                    <!--android:scaleType="fitCenter"-->
+                    <!--android:layout_gravity="center_horizontal" />-->
 
                 </FrameLayout>
 
 
             </FrameLayout>
+
             <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/subColor"
                 android:layout_margin="8dp"
-                android:layout_weight="1">
+                android:layout_weight="1"
+                android:background="@color/subColor">
 
                 <FrameLayout
                     android:layout_width="match_parent"
@@ -191,27 +193,28 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center"
-                        android:textSize="24sp"
                         android:padding="4dp"
-                        android:textStyle="bold"
                         android:text="もどる"
-                        android:textColor="@color/mainColor"/>
+                        android:textColor="@color/mainColor"
+                        android:textSize="24sp"
+                        android:textStyle="bold" />
 
                     <!--<ImageButton-->
-                        <!--android:id="@+id/button_back"-->
-                        <!--android:src="@drawable/setting"-->
-                        <!--android:background="@color/subColor"-->
-                        <!--android:layout_width="match_parent"-->
-                        <!--android:layout_height="wrap_content"-->
-                        <!--android:layout_margin="4dp"-->
-                        <!--android:adjustViewBounds="true"-->
-                        <!--android:scaleType="fitCenter"-->
-                        <!--android:layout_gravity="center_horizontal" />-->
+                    <!--android:id="@+id/button_back"-->
+                    <!--android:src="@drawable/setting"-->
+                    <!--android:background="@color/subColor"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_margin="4dp"-->
+                    <!--android:adjustViewBounds="true"-->
+                    <!--android:scaleType="fitCenter"-->
+                    <!--android:layout_gravity="center_horizontal" />-->
 
                 </FrameLayout>
             </FrameLayout>
         </LinearLayout>
     </LinearLayout>
+
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"

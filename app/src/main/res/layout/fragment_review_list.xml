@@ -1,5 +1,6 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background"
     android:orientation="vertical"
@@ -8,11 +9,10 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_marginTop="24dp"
         android:layout_marginBottom="12dp"
+        android:layout_marginTop="24dp"
         android:background="@color/subColor"
-        >
+        android:orientation="vertical">
 
         <View
             android:layout_width="match_parent"
@@ -21,13 +21,13 @@
             android:background="@color/mainColor"></View>
 
         <TextView
+            android:id="@+id/text_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor="@color/mainColor"
+            android:layout_gravity="center_horizontal"
             android:text="模擬試験"
-            android:id="@+id/text_title"
-            android:layout_gravity="center_horizontal" />
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@color/mainColor" />
 
         <View
             android:layout_width="match_parent"
@@ -36,41 +36,43 @@
             android:background="@color/mainColor"></View>
 
     </LinearLayout>
+
     <ListView
+        android:id="@+id/list_result"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
-        android:layout_weight="1"
-        android:id="@+id/list_result" />
+        android:layout_weight="1" />
 
     <LinearLayout
-        android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp">
+        android:layout_margin="16dp"
+        android:orientation="horizontal">
 
         <LinearLayout
             android:layout_width="1dp"
             android:layout_height="match_parent"
-            android:gravity="center"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:gravity="center">
 
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="1dp"
             android:layout_height="match_parent"
-            android:background="@color/mainColor"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:background="@color/mainColor">
 
             <Button
+                android:id="@+id/button_back"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/subColor"
+                android:text="もどる"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@color/mainColor"
-                android:textStyle="bold"
-                android:text="もどる"
-                android:id="@+id/button_back" />
+                android:textStyle="bold" />
         </LinearLayout>
 
     </LinearLayout>

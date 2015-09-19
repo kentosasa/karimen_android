@@ -1,4 +1,4 @@
-package com.karimen.kento.karimen;
+package com.karimen.kento.honmen;
 
 import android.app.AlertDialog;
 import android.app.Fragment;
@@ -46,11 +46,12 @@ public class ReviewListFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_review_list, container, false);
         context = getActivity();
 
-        pref = context.getSharedPreferences("pref",Context.MODE_PRIVATE);
-        review_list = gson.fromJson(pref.getString("review_list", gson.toJson(new ArrayList<Integer>())), new TypeToken<ArrayList<Integer>>(){}.getType());
+        pref = context.getSharedPreferences("pref", Context.MODE_PRIVATE);
+        review_list = gson.fromJson(pref.getString("review_list", gson.toJson(new ArrayList<Integer>())), new TypeToken<ArrayList<Integer>>() {
+        }.getType());
 
         String url = "https://menkyo.herokuapp.com/api/get_review_list?list=";
-        for (int i = 0; i < review_list.size(); i++){
+        for (int i = 0; i < review_list.size(); i++) {
             url = url + review_list.get(i) + ",";
         }
         aq = new AQuery(getActivity(), view);
@@ -72,10 +73,10 @@ public class ReviewListFragment extends Fragment {
     }
 
 
-    public void jsonArrayCallback(String url, JSONArray jsonArray, AjaxStatus status){
+    public void jsonArrayCallback(String url, JSONArray jsonArray, AjaxStatus status) {
         Log.e("Callback", "Callback");
         Log.e("URL", url);
-        if (jsonArray != null){
+        if (jsonArray != null) {
             for (int i = 0; jsonArray.length() > i; i++) {
                 try {
                     Problem data = new Problem();
@@ -85,9 +86,9 @@ public class ReviewListFragment extends Fragment {
                     data.setQuestion_text(raw.getString("question_text"));
                     data.setExplanation(raw.getString("explanation"));
                     data.setCorrect_answer(raw.getBoolean("correct_answer"));
-                    if (data.isCorrect_answer()){
+                    if (data.isCorrect_answer()) {
                         data.setUser_answer(false);
-                    }else {
+                    } else {
                         data.setUser_answer(true);
                     }
 
@@ -96,7 +97,8 @@ public class ReviewListFragment extends Fragment {
                     results.add(data);
                 } catch (JSONException e) {
                     Log.e("JsonParse失敗", "残念");
-                };
+                }
+                ;
             }
 
             final MyListAdapter adapter = new MyListAdapter(getActivity(), results);
@@ -131,10 +133,7 @@ public class ReviewListFragment extends Fragment {
                     dialog.show();
                 }
             });
-
-//            aq.id(R.id.layout_mogi).visible();
-//            aq.id(R.id.progressBar).gone();
-        }else{
+        } else {
             Toast.makeText(context, "ネットワークに接続できませんでした", Toast.LENGTH_SHORT).show();
             Log.e("NetWorkError", "Error!");
             Log.e("Status", status.getMessage());

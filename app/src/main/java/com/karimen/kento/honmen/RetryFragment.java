@@ -1,4 +1,4 @@
-package com.karimen.kento.karimen;
+package com.karimen.kento.honmen;
 
 import android.app.AlertDialog;
 import android.app.Fragment;
@@ -50,10 +50,11 @@ public class RetryFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_problem, container, false);
         context = getActivity();
-        pref = context.getSharedPreferences("pref",Context.MODE_PRIVATE);
-        review_list = gson.fromJson(pref.getString("review_list", gson.toJson(new ArrayList<Integer>())), new TypeToken<ArrayList<Integer>>(){}.getType());
+        pref = context.getSharedPreferences("pref", Context.MODE_PRIVATE);
+        review_list = gson.fromJson(pref.getString("review_list", gson.toJson(new ArrayList<Integer>())), new TypeToken<ArrayList<Integer>>() {
+        }.getType());
 
-        for (int i = 0; i < review_list.size(); i++){
+        for (int i = 0; i < review_list.size(); i++) {
             url = url + review_list.get(i) + ",";
         }
         aq = new AQuery(getActivity(), view);
@@ -77,14 +78,14 @@ public class RetryFragment extends Fragment {
         return view;
     }
 
-    public void judge(boolean click_button){
+    public void judge(boolean click_button) {
         problems.get(question_num).setUser_answer(click_button);
         AlertDialog.Builder dialog = new AlertDialog.Builder(context);
-        if (String.valueOf(problems.get(question_num).isCorrect_answer()) == String.valueOf(click_button)){
+        if (String.valueOf(problems.get(question_num).isCorrect_answer()) == String.valueOf(click_button)) {
             dialog.setIcon(R.drawable.maru_50);
             dialog.setTitle("正解");
 
-        }else{
+        } else {
             dialog.setIcon(R.drawable.batu_50);
             dialog.setTitle("不正解");
         }
@@ -120,7 +121,8 @@ public class RetryFragment extends Fragment {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 review_list.remove(question_num);
-                review_list = gson.fromJson(pref.getString("review_list", gson.toJson(new ArrayList<Integer>())), new TypeToken<ArrayList<Integer>>(){}.getType());
+                review_list = gson.fromJson(pref.getString("review_list", gson.toJson(new ArrayList<Integer>())), new TypeToken<ArrayList<Integer>>() {
+                }.getType());
                 if (question_num < problems.size() - 1) question_num++;
                 else question_num = 0;
                 aq.id(R.id.text_problem).text(problems.get(question_num).question_text);
@@ -130,11 +132,11 @@ public class RetryFragment extends Fragment {
 
     }
 
-    public void jsonArrayCallback(String url, JSONArray jsonArray, AjaxStatus status){
+    public void jsonArrayCallback(String url, JSONArray jsonArray, AjaxStatus status) {
         Log.e("Callback", "Callback");
         Log.e("URL", url);
-        if (jsonArray != null){
-            if (jsonArray.length() > 0){
+        if (jsonArray != null) {
+            if (jsonArray.length() > 0) {
                 for (int i = 0; jsonArray.length() > i; i++) {
                     try {
                         Problem data = new Problem();
@@ -151,15 +153,16 @@ public class RetryFragment extends Fragment {
                         problems.add(data);
                     } catch (JSONException e) {
                         Log.e("JsonParse失敗", "残念");
-                    };
+                    }
+                    ;
                 }
-            }else{
-               Toast.makeText(context, "復習問題が存在しません", Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(context, "復習問題が存在しません", Toast.LENGTH_SHORT).show();
             }
             aq.id(R.id.text_problem).text(problems.get(question_num).question_text);
             aq.id(R.id.layout_mogi).visible();
             aq.id(R.id.progressBar).gone();
-        }else{
+        } else {
             Toast.makeText(context, "ネットワークに接続できませんでした", Toast.LENGTH_SHORT).show();
             Log.e("NetWorkError", "Error!");
             Log.e("Status", status.getMessage());

@@ -1,9 +1,9 @@
-package com.karimen.kento.karimen;
+package com.karimen.kento.honmen;
 
+import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
-import android.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,7 +16,7 @@ import com.google.gson.reflect.TypeToken;
 import java.util.ArrayList;
 
 
-public class MogiResultFragment extends Fragment{
+public class MogiResultFragment extends Fragment {
 
 
     public MogiResultFragment() {
@@ -30,23 +30,24 @@ public class MogiResultFragment extends Fragment{
         View view = inflater.inflate(R.layout.fragment_mogi_result, container, false);
         String data = getArguments().getString("key");
         Gson gson = new Gson();
-        final ArrayList<Problem> results = gson.fromJson(data, new TypeToken<ArrayList<Problem>>(){}.getType());
+        final ArrayList<Problem> results = gson.fromJson(data, new TypeToken<ArrayList<Problem>>() {
+        }.getType());
         AQuery aq = new AQuery(getActivity(), view);
         MyListAdapter adapter = new MyListAdapter(getActivity(), results);
 
         int score = 0;
-        for (int i = 0; results.size() > i; i++){
+        for (int i = 0; results.size() > i; i++) {
             Problem result = results.get(i);
-            if (result.isUser_answer() == result.isCorrect_answer()){
+            if (result.isUser_answer() == result.isCorrect_answer()) {
                 score++;
             }
         }
-        if (score >= 45){
+        if (score >= 45) {
             aq.id(R.id.text_pass_of_fail).text("合格 ").textColor(R.color.Red);
-            aq.id(R.id.text_score).text(score + "/50" );
-        }else{
+            aq.id(R.id.text_score).text(score + "/50");
+        } else {
             aq.id(R.id.text_pass_of_fail).text("不合格 ").textColor(R.color.Blue);
-            aq.id(R.id.text_score).text(score + "/50" );
+            aq.id(R.id.text_score).text(score + "/50");
         }
         aq.id(R.id.list_result).adapter(adapter).itemClicked(new AdapterView.OnItemClickListener() {
             @Override

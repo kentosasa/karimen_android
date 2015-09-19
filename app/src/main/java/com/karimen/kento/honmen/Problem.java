@@ -1,6 +1,4 @@
-package com.karimen.kento.karimen;
-
-import android.widget.LinearLayout;
+package com.karimen.kento.honmen;
 
 /**
  * Created by Kento on 15/02/09.
@@ -9,6 +7,9 @@ public class Problem {
     int id;
     String question_image_url;
     String question_text;
+    String explanation;
+    boolean correct_answer;
+    boolean user_answer;
 
     public boolean isUser_answer() {
         return user_answer;
@@ -18,12 +19,12 @@ public class Problem {
         this.user_answer = user_answer;
     }
 
-    String explanation;
-    boolean correct_answer;
-    boolean user_answer;
-
     public int getId() {
         return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getQuestion_image_url() {
@@ -56,9 +57,5 @@ public class Problem {
 
     public void setCorrect_answer(boolean correct_answer) {
         this.correct_answer = correct_answer;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 }

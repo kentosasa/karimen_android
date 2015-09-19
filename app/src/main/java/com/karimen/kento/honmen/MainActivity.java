@@ -1,15 +1,9 @@
-package com.karimen.kento.karimen;
+package com.karimen.kento.honmen;
 
 import android.app.Activity;
-import android.app.ActionBar;
-import android.app.Fragment;
 import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
-import android.os.Build;
+
+import net.nend.android.NendAdInterstitial;
 
 
 public class MainActivity extends Activity {
@@ -23,6 +17,8 @@ public class MainActivity extends Activity {
                     .replace(R.id.container, new TopFragment())
                     .commit();
         }
+        NendAdInterstitial.loadAd(getApplicationContext(), "519a87ded748846617f0bf2528b6c448e6220829", 338068);
+
     }
 
     @Override
@@ -31,7 +27,6 @@ public class MainActivity extends Activity {
         if (backStackCnt != 0) {
             getFragmentManager().popBackStack(); // BackStackに乗っているFragmentを戻す
         }
-
 
 
     }

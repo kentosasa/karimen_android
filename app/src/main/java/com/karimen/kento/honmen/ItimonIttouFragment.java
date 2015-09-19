@@ -1,4 +1,4 @@
-package com.karimen.kento.karimen;
+package com.karimen.kento.honmen;
 
 import android.app.AlertDialog;
 import android.app.Fragment;
@@ -7,7 +7,6 @@ import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
-import android.opengl.Visibility;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -29,10 +28,10 @@ import java.util.ArrayList;
 public class ItimonIttouFragment extends Fragment {
 
     final Gson gson = new Gson();
+    final String url = "https://menkyo.herokuapp.com/api/get_all_problems";
     SharedPreferences pref;
     ArrayList<Integer> review_list;
     ArrayList<Problem> problems = new ArrayList<Problem>();
-    final String url = "https://menkyo.herokuapp.com/api/get_all_problems?honmen=1";
     String put_correct = "https://menkyo.herokuapp.com/api/put_correct?id=";
     String put_miss = "https://menkyo.herokuapp.com/api/put_miss?id=";
     AQuery aq;
@@ -48,8 +47,9 @@ public class ItimonIttouFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_problem, container, false);
         context = getActivity();
-        pref = context.getSharedPreferences("pref",Context.MODE_PRIVATE);
-        review_list = gson.fromJson(pref.getString("review_list", gson.toJson(new ArrayList<Integer>())), new TypeToken<ArrayList<Integer>>(){}.getType());
+        pref = context.getSharedPreferences("pref", Context.MODE_PRIVATE);
+        review_list = gson.fromJson(pref.getString("review_list", gson.toJson(new ArrayList<Integer>())), new TypeToken<ArrayList<Integer>>() {
+        }.getType());
 
         aq = new AQuery(getActivity(), view);
 
@@ -72,19 +72,19 @@ public class ItimonIttouFragment extends Fragment {
         return view;
     }
 
-    public void judge(boolean click_button){
+    public void judge(boolean click_button) {
         problems.get(question_num).setUser_answer(click_button);
         AlertDialog.Builder dialog = new AlertDialog.Builder(context);
-        if (String.valueOf(problems.get(question_num).isCorrect_answer()) == String.valueOf(click_button)){
-            aq.ajax(put_correct+problems.get(question_num).getId(), String.class, this, "");
+        if (String.valueOf(problems.get(question_num).isCorrect_answer()) == String.valueOf(click_button)) {
+            aq.ajax(put_correct + problems.get(question_num).getId(), String.class, this, "");
             dialog.setIcon(R.drawable.maru_50);
             dialog.setTitle("正解");
 
-        }else{
+        } else {
             review_list.add(problems.get(question_num).getId());
             pref.edit().putString("review_list", gson.toJson(review_list)).commit();
 
-            aq.ajax(put_miss+problems.get(question_num).getId(), String.class, this, "");
+            aq.ajax(put_miss + problems.get(question_num).getId(), String.class, this, "");
             dialog.setIcon(R.drawable.batu_50);
             dialog.setTitle("不正解");
         }
@@ -92,8 +92,8 @@ public class ItimonIttouFragment extends Fragment {
         dialog.setNegativeButton("次へ", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                if (question_num < problems.size()-1) question_num++;
-                else  question_num = 0;
+                if (question_num < problems.size() - 1) question_num++;
+                else question_num = 0;
                 setQuestion();
 
             }
@@ -112,27 +112,27 @@ public class ItimonIttouFragment extends Fragment {
                 ft.addToBackStack(null);
                 ft.commit();
 
-                if (question_num < problems.size()-1) question_num++;
-                else  question_num = 0;
+                if (question_num < problems.size() - 1) question_num++;
+                else question_num = 0;
                 setQuestion();
             }
         });
         dialog.show();
     }
 
-    public void setQuestion(){
+    public void setQuestion() {
         String image_url = problems.get(question_num).getQuestion_image_url();
-        if (image_url.length() > 5){
+        if (image_url.length() > 5) {
             aq.id(R.id.image_problem).visible();
             aq.id(R.id.image_problem).image(image_url);
-        }else{
+        } else {
             aq.id(R.id.image_problem).gone();
         }
         aq.id(R.id.text_problem).text(problems.get(question_num).question_text);
     }
 
-    public void jsonArrayCallback(String url, JSONArray jsonArray, AjaxStatus status){
-        if (jsonArray != null){
+    public void jsonArrayCallback(String url, JSONArray jsonArray, AjaxStatus status) {
+        if (jsonArray != null) {
             for (int i = 0; jsonArray.length() > i; i++) {
                 try {
                     Problem data = new Problem();
@@ -149,12 +149,13 @@ public class ItimonIttouFragment extends Fragment {
                     problems.add(data);
                 } catch (JSONException e) {
                     Log.e("JsonParse失敗", "残念");
-                };
+                }
+                ;
             }
             aq.id(R.id.text_problem).text(problems.get(question_num).question_text);
             aq.id(R.id.layout_mogi).visible();
             aq.id(R.id.progressBar).gone();
-        }else{
+        } else {
             Toast.makeText(context, "ネットワークに接続できませんでした", Toast.LENGTH_SHORT).show();
             Log.e("NetWorkError", "Error!");
             Log.e("Status", status.getMessage());

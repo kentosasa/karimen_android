@@ -1,5 +1,6 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background"
     android:orientation="vertical"
@@ -8,43 +9,42 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
         android:layout_marginTop="24dp"
         android:background="@color/subColor"
-        >
+        android:orientation="vertical">
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="4dp"
-                android:layout_marginTop="8dp"
-                android:background="@color/mainColor"></View>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="4dp"
+            android:layout_marginTop="8dp"
+            android:background="@color/mainColor"></View>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textColor="@color/mainColor"
-                android:text="運転仮免許問題集"
-                android:id="@+id/text_title"
-                android:layout_gravity="center_horizontal" />
+        <TextView
+            android:id="@+id/text_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="運転免許問題集"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@color/mainColor" />
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="4dp"
-                android:layout_marginBottom="8dp"
-                android:background="@color/mainColor"></View>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="4dp"
+            android:layout_marginBottom="8dp"
+            android:background="@color/mainColor"></View>
 
-        </LinearLayout>
+    </LinearLayout>
 
 
     <LinearLayout
-        android:orientation="vertical"
-        android:layout_gravity="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:weightSum="1"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:orientation="vertical"
         android:padding="32dp"
-        android:layout_weight="1">
+        android:weightSum="1">
 
         <ImageView
             android:id="@+id/image_top"
@@ -55,17 +55,17 @@
             android:src="@drawable/car"></ImageView>
 
         <LinearLayout
-            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center">
+            android:gravity="center"
+            android:orientation="vertical">
 
             <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/subColor"
                 android:layout_margin="8dp"
-                android:layout_weight="1">
+                android:layout_weight="1"
+                android:background="@color/subColor">
 
                 <FrameLayout
                     android:layout_width="match_parent"
@@ -78,23 +78,24 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center"
-                        android:textSize="24sp"
                         android:padding="4dp"
                         android:text="模擬試験"
-                        android:textStyle="bold"
-                        android:textColor="@color/White"/>
+                        android:textColor="@color/White"
+                        android:textSize="24sp"
+                        android:textStyle="bold" />
 
 
-                    </FrameLayout>
+                </FrameLayout>
 
 
             </FrameLayout>
+
             <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/subColor"
                 android:layout_margin="8dp"
-                android:layout_weight="1">
+                android:layout_weight="1"
+                android:background="@color/subColor">
 
                 <FrameLayout
                     android:layout_width="match_parent"
@@ -107,31 +108,32 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center"
-                        android:textSize="24sp"
                         android:padding="4dp"
                         android:text="一問一答"
-                        android:textStyle="bold"
-                        android:textColor="@color/White"/>
+                        android:textColor="@color/White"
+                        android:textSize="24sp"
+                        android:textStyle="bold" />
 
                     <!--<ImageButton-->
-                        <!--android:id="@+id/button_itimonittou"-->
-                        <!--android:src="@drawable/itimon"-->
-                        <!--android:background="@color/subColor"-->
-                        <!--android:layout_width="match_parent"-->
-                        <!--android:layout_height="wrap_content"-->
-                        <!--android:layout_margin="4dp"-->
-                        <!--android:adjustViewBounds="true"-->
-                        <!--android:scaleType="fitCenter"-->
-                        <!--android:layout_gravity="center_horizontal" />-->
+                    <!--android:id="@+id/button_itimonittou"-->
+                    <!--android:src="@drawable/itimon"-->
+                    <!--android:background="@color/subColor"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_margin="4dp"-->
+                    <!--android:adjustViewBounds="true"-->
+                    <!--android:scaleType="fitCenter"-->
+                    <!--android:layout_gravity="center_horizontal" />-->
 
                 </FrameLayout>
             </FrameLayout>
+
             <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/subColor"
                 android:layout_margin="8dp"
-                android:layout_weight="1">
+                android:layout_weight="1"
+                android:background="@color/subColor">
 
                 <FrameLayout
                     android:layout_width="match_parent"
@@ -144,54 +146,55 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center"
-                        android:textSize="24sp"
                         android:padding="4dp"
-                        android:textStyle="bold"
                         android:text="復習"
-                        android:textColor="@color/White"/>
+                        android:textColor="@color/White"
+                        android:textSize="24sp"
+                        android:textStyle="bold" />
                     <!--<ImageButton-->
-                        <!--android:id="@+id/button_review"-->
-                        <!--android:src="@drawable/review"-->
-                        <!--android:background="@color/subColor"-->
-                        <!--android:layout_width="match_parent"-->
-                        <!--android:layout_height="wrap_content"-->
-                        <!--android:layout_margin="4dp"-->
-                        <!--android:adjustViewBounds="true"-->
-                        <!--android:scaleType="fitCenter"-->
-                        <!--android:layout_gravity="center_horizontal" />-->
+                    <!--android:id="@+id/button_review"-->
+                    <!--android:src="@drawable/review"-->
+                    <!--android:background="@color/subColor"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_margin="4dp"-->
+                    <!--android:adjustViewBounds="true"-->
+                    <!--android:scaleType="fitCenter"-->
+                    <!--android:layout_gravity="center_horizontal" />-->
 
                 </FrameLayout>
 
 
             </FrameLayout>
             <!--<FrameLayout-->
-                <!--android:layout_width="1dp"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:background="@color/subColor"-->
-                <!--android:layout_margin="8dp"-->
-                <!--android:layout_weight="1">-->
+            <!--android:layout_width="1dp"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:background="@color/subColor"-->
+            <!--android:layout_margin="8dp"-->
+            <!--android:layout_weight="1">-->
 
-                <!--<FrameLayout-->
-                    <!--android:layout_width="match_parent"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:layout_margin="8dp"-->
-                    <!--android:background="@color/mainColor">-->
+            <!--<FrameLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_margin="8dp"-->
+            <!--android:background="@color/mainColor">-->
 
-                    <!--&lt;!&ndash;<ImageButton&ndash;&gt;-->
-                        <!--&lt;!&ndash;android:id="@+id/button_setting"&ndash;&gt;-->
-                        <!--&lt;!&ndash;android:src="@drawable/setting"&ndash;&gt;-->
-                        <!--&lt;!&ndash;android:background="@color/subColor"&ndash;&gt;-->
-                        <!--&lt;!&ndash;android:layout_width="match_parent"&ndash;&gt;-->
-                        <!--&lt;!&ndash;android:layout_height="wrap_content"&ndash;&gt;-->
-                        <!--&lt;!&ndash;android:layout_margin="4dp"&ndash;&gt;-->
-                        <!--&lt;!&ndash;android:adjustViewBounds="true"&ndash;&gt;-->
-                        <!--&lt;!&ndash;android:scaleType="fitCenter"&ndash;&gt;-->
-                        <!--&lt;!&ndash;android:layout_gravity="center_horizontal" />&ndash;&gt;-->
+            <!--&lt;!&ndash;<ImageButton&ndash;&gt;-->
+            <!--&lt;!&ndash;android:id="@+id/button_setting"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:src="@drawable/setting"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:background="@color/subColor"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:layout_width="match_parent"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:layout_height="wrap_content"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:layout_margin="4dp"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:adjustViewBounds="true"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:scaleType="fitCenter"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:layout_gravity="center_horizontal" />&ndash;&gt;-->
 
-                <!--</FrameLayout>-->
+            <!--</FrameLayout>-->
             <!--</FrameLayout>-->
         </LinearLayout>
     </LinearLayout>
+
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
